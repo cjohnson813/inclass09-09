@@ -1,4 +1,13 @@
+const http = require('http');
 
+const myserver = http.createServer(function (req, res) {
+	url = require('url');
+
+	console.log(req.url);
+	res.write(`<html> <body> <p> Received </p> </body> </html>
+	res.end(); //end response
+
+});
 const availableTimes = {
     Monday: ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
     Tuesday: ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
@@ -9,3 +18,6 @@ const availableTimes = {
 const appointments = [
     {name: "James", day: "Wednesday", time: "3:30" },
     {name: "Lillie", day: "Friday", time: "1:00" }];
+
+myserver.listen(80);
+

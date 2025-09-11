@@ -1,14 +1,20 @@
 const http = require('http');
 
 const myserver = http.createServer(function (req, res) {
-	url = require('url');
+	
+	const url = require('url');
+	console.log('Request URL:', req.url);
+	console.log('Parsed query:', query);
 
-	console.log(req.url);
-	res.write(`<html> <body> <p> Received </p> </body> </html>
+	res.writeHead(200, {'Content-Type': 'text/html'});  //set content type
+	res.write(`<html> <body> <p> Received </p> </body> </html>`);
+
+	
 	res.end(); //end response
+	return;
 
 });
-const availableTimes = {
+const availableTimes = {  
     Monday: ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
     Tuesday: ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
     Wednesday: ["1:00", "1:30", "2:00", "2:30", "3:00", "4:00", "4:30"],
